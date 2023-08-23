@@ -198,7 +198,10 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Player collided with something! Boom!");
-        if (collision.gameObject.CompareTag("Ground") && isAlive)
+        if (
+            (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy"))
+            && isAlive
+        )
         {
             PlayerDeath();
         }

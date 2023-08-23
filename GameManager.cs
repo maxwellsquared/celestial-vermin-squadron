@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numEnemies = 6;
+        numEnemies = 0;
         score = 0;
         scoreText.text = "SCORE: " + score;
 
@@ -51,9 +52,21 @@ public class GameManager : MonoBehaviour
         }
         if (livesLeft < 1)
         {
-            livesText.text = "oops game over!!!";
+            livesText.text = "";
+            Invoke("NoMoreLives", 2f);
             // transition to GAME OVER scene
             // which transitions to main menu
         }
+    }
+
+    public void NoMoreLives()
+    {
+        StartCoroutine(loadGameOver());
+    }
+
+    public IEnumerator loadGameOver()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("GameOver");
+        yield return null;
     }
 }

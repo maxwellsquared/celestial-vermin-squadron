@@ -43,14 +43,13 @@ public class FighterSpawner : MonoBehaviour
     // coroutine to start the spawner
     IEnumerator SpawnEnemies()
     {
-        //while (numEnemies <= maxEnemies)
-        while (true)
+        while (numEnemies <= maxEnemies)
         {
             SpawnEnemy();
             numEnemies++;
-            // Debug.Log("Spawned an enemy!" + numEnemies + " enemies exist now.");
-            // yield return new WaitForSeconds(spawnFrequency);
-            yield return new WaitForSeconds(2f);
+            Debug.Log("Spawned an enemy!" + numEnemies + " enemies exist now.");
+            yield return new WaitForSeconds(spawnFrequency);
+            // yield return new WaitForSeconds(2f);
         }
     }
 
