@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI deadText;
     public TextMeshProUGUI debugText;
 
+    public GameManager gameManager;
+
     public AudioSource playerSound;
     public AudioClip shootSound;
     public AudioClip boostSound;
@@ -60,6 +62,8 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         playerSound = GetComponent<AudioSource>();
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -214,6 +218,9 @@ public class PlayerController : MonoBehaviour
         _rigidbody.useGravity = true;
         Vector3 force = new Vector3(0f, boomSize, 0f);
         _rigidbody.AddForce(force, ForceMode.Impulse);
+
+        gameManager.SubtractLife();
+
         Invoke("PlayerRespawn", 5f);
     }
 

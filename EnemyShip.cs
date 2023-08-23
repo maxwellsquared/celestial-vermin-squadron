@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipRotator : MonoBehaviour
+public class EnemyShip : MonoBehaviour
 {
     public Transform target;
 
