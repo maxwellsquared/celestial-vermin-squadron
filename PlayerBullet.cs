@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-
     public float speed = 2500.0f;
     public float maxLifetime = 4f;
 
@@ -16,16 +15,10 @@ public class PlayerBullet : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
     public void Project(Vector3 direction)
     {
@@ -37,6 +30,6 @@ public class PlayerBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(this.gameObject);
-        Debug.Log("Bullet hit something!");
+        // Debug.Log("Bullet hit something!");
     }
 }

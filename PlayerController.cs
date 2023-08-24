@@ -103,8 +103,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2") && isAlive)
         {
-            // float newFov;
-            Debug.Log("Wheeeee!");
             isBoosting = true;
             SetSpeed(forwardSpeed * 2);
             boostParticles.Play();
@@ -119,7 +117,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && isAlive)
         {
-            Debug.Log("Shooting!");
             Shoot();
         }
 
